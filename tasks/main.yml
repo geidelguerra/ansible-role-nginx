@@ -1,0 +1,17 @@
+---
+# tasks file for ansible-role-nginx
+- name: Install dirmngr
+  ansible.builtin.apt:
+    name: dirmngr
+    state: present
+    update_cache: yes
+
+- name: Add Nginx PPA repository
+  ansible.builtin.apt_repository:
+    repo: ppa:ondrej/nginx
+    state: present
+
+- name: Install Nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
